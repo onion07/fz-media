@@ -1,0 +1,447 @@
+@import "_mixins.less";
+
+@imgUrl : "../img";
+@bgColor : #161628;
+@fontColor1 : #c0c0c0;
+@fontColor2 : #161627;
+@fontSize14 : 1.3vh;
+@fontSize16 : 1.48vh;
+@fontSize18 : 1.66vh;
+@fontSize20 : 1.85vh;
+@padding-v : 2vw;
+@PXtoVw: 19.2vw; 
+@PXtoVh: 10.8vh; 
+
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+  *zoom: 1;
+}
+// Background sizing
+.background-size(@size) {
+  -webkit-background-size: @size;
+  -moz-background-size: @size;
+  -o-background-size: @size;
+  background-size: @size;
+}
+
+/* ************************************************** */
+html,body{
+	font-size: 16px;
+	/*font-size: 1.6vh;*/
+}
+/*@media (max-width: 1335px) {
+    html,body{
+ 		font-size: 12px;   	
+    }
+}*/
+@media (max-width: 1530px) {
+    html,body{
+ 		font-size: 14px;   	
+    }
+    body .middle-box .data-title li{
+	    margin-right: 18/@PXtoVw;
+	    margin-left: 18/@PXtoVw;
+    }
+}
+
+.wrap{
+	overflow: hidden;
+}
+	.middle-box{
+	overflow: hidden;
+	margin-bottom: 3.518vh;
+	padding: 0 2vw;
+	&:after{
+		content:'';
+		height: 1px;
+		display: block;
+		clear: both;
+	}
+	.box-top{
+		height: 7.222vh;
+		margin-bottom: 6/@PXtoVh;
+	}
+	.data-title{
+		display: flex;
+		float: right;
+		width: 75.57vw;
+		height: 100%;
+		justify-content: center;
+		/*align-content:center;*/
+		align-items: center;
+		background: url("@{imgUrl}/title_bg.png") no-repeat;
+		.background-size(100% 100%);
+		li{
+			/*display: inline-block;*/
+			float: left;
+			margin-bottom: 0.74vh;
+			margin-right: 32/@PXtoVw;
+			margin-left: 32/@PXtoVw;
+			em{
+				font-style: normal;
+				font-size: 1.375rem;
+				color: #c0c0c0;
+			}
+			span{
+				font-size: 1.66rem;
+				color: #fff;
+			}
+
+			&:last-child{
+				span{
+					color: #ed980e;
+				}
+			}
+		}
+	}
+	.echar-wrap{
+		padding-top: 30/@PXtoVh;
+		#echar-box{
+			height: 496/@PXtoVh;
+		}
+	}
+	.side-left{
+		width: 370/@PXtoVw;
+		float: left;
+		.quan{
+		      position: absolute;
+		      left: 0px;
+		      top: 0px;
+		    }
+		    .quan-out{
+		      width: 118/@PXtoVw;
+		      height: 118/@PXtoVw;
+		      background: url("@{imgUrl}/ani2_out.png") 0 0 no-repeat;
+		      .background-size(100% 100%);
+		      /*.animation(iconMoveOut 3s linear infinite);*/
+		    }
+		    .quan-in{
+	    	  top:50%;
+	    	  left: 50%;
+	    	  margin-left: -96/2/@PXtoVw;
+	    	  margin-top: -96/2/@PXtoVw;
+	    	  width: 96/@PXtoVw;
+		      height: 96/@PXtoVw;
+		      background: url("@{imgUrl}/ani2_in.png") 0 0 no-repeat;
+		      .background-size(100% 100%);
+		      /*.animation(iconMoveIn 3s linear infinite);*/
+		    }
+		.team-name{
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			height: 22/@PXtoVh;
+			margin-top: -11/@PXtoVh;
+	        /*font-size: 16px;*/
+	        font-size: 1rem;
+			text-align: center;
+		}
+		ul{
+			/*width: 20.312vw;*/
+			/*height: 29.259vh;*/
+			/*padding-left: 25/@PXtoVw;*/
+			text-align: center;
+			li{
+				position: relative;
+				display: inline-block;
+				/*width: 5.83vw;
+		        height: 5.83vw;*/
+		        width: 118/@PXtoVw;
+		        height: 118/@PXtoVw;
+				margin:0 25/@PXtoVw 50/@PXtoVh ;
+				color: #fff;
+				cursor: pointer;
+				&.cur{
+					.quan-out{
+				      background: url("@{imgUrl}/ani1_out.png") 0 0 no-repeat;
+				      .background-size(100% 100%);
+				      .animation(iconMoveOut 3s linear infinite);
+				    }
+				    .quan-in{
+				      background: url("@{imgUrl}/ani1_in.png") 0 0 no-repeat;
+				      .background-size(100% 100%);
+				      .animation(iconMoveIn 3s linear infinite);
+				    }
+				}
+			}
+		}
+		 
+	}
+	.side-right{
+		position: relative;
+		width: 75.604vw;
+		float: right;
+		.time-scale{
+			position: absolute;
+			top: 10px;
+		    width: 100%;
+		    text-align: center;
+		    li{
+		    	position: relative;
+		    	display: inline-block;
+			    margin-right: 2vw;
+			    z-index: 10;
+			    &.active{
+			    	span{
+					    color: #df8f10;
+					    border-bottom: 1px solid #e19216;
+			    	}
+			    }
+			    span{
+			    	display: inline-block;
+			    	height: 28px;
+				    line-height: 28px;
+				    border-bottom: 1px solid transparent;
+				    color: #fff;
+				    font-size: 1.66vh;
+				    text-align: center;
+				    cursor: pointer;
+				    z-index: 20;
+			    }
+		    }
+		}
+	}
+	
+}
+.under-box{
+  /*padding: 5.52vh @padding-v 0;*/
+  position: absolute;
+  bottom: 66/@PXtoVh;
+  width: 100%;
+  display: flex;
+  height: 19.5vh;
+  justify-content: center;
+  clear: both;
+  .clearfix();
+}
+.urank{
+  /*width: 24.67%;*/
+  width: 33.6vw;
+  height: 100%;
+  float: left;
+  margin-right: 0.82%;
+  background: url("@{imgUrl}/ubox-1.png") 0 0 no-repeat;
+  .background-size(100% 100%);
+  &.ur-right{
+  	width: 26.56vw;
+  	.sum-list-outter{
+  		float: left;
+  		width: 43%;
+  		padding: 0 3%;
+  		text-align: center;
+  		color: #fff;
+  		&:last-child{
+  			float:right;
+  		}
+  		.tab-head{
+  			li{
+  				width:100%;
+	  			text-align: center;
+  				
+  			}
+  		}
+  		.sum-list{
+  			height:14.64vh;
+  			li{
+  				height: 3.518vh;
+  				width: 100%;
+			    border-bottom: 1px solid #393231;
+  				line-height: 3.518vh;
+	  			overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			    color: #b4b3b3;
+			    font-size: 1.3vh;
+			    &:first-child{
+		    		margin-top: 0.833vh;
+			    }
+			    span{
+			    	display: inline-block;
+			    	text-align: left;
+		    		width:45%;
+		    		float: right;
+			    	&:first-child{
+			    		float:left;
+			    		text-align: right;
+			    	}
+			    }
+  			}
+  		}
+
+  	&:last-child{
+
+  		.sum-list{
+			li{
+				span{
+					width: 65%;
+					&:first-child{
+							width:25%;
+					}
+				}
+			}
+  		}
+	}
+  		
+  	}
+  }
+	.ubox-title{
+	  font-size: @fontSize18;
+	  color: #ffffff;
+	  text-align: center;
+	  line-height: 3vh;
+	  margin-top: -3vh;
+	  .tl{
+	  	  display: inline-block;
+	  	  &:first-child{
+			  margin-right: 1.875vw;
+	  	  }
+	  }
+	  span{
+	    color: @fontColor1;
+	    font-size: @fontSize16;
+	  }
+	}
+
+	.tab-head{
+	  height: 22px;
+	  margin: 0 24px;
+	  position: relative;
+	  .clearfix();
+	  >li{
+	    float: left;
+	    line-height: 22px;
+	    text-align: center;
+	    font-size: 1.66vh;
+	    color: #ed980e;
+	  }
+	}
+	.tab-rank{
+	  width: 100%;
+	  border-collapse:collapse;
+	  tbody{
+	    >tr{
+	      text-align: center;
+	      color: #ffffff;
+	      padding: 0 24px;
+	      border-bottom: 1px solid #393231;
+	      display: block;
+	      //height: 3.24vh;
+	      //line-height: 3.24vh;
+	      .clearfix();
+	      &:last-child{
+	        border-bottom: 0px solid #393231;
+	      }
+	    }
+	    td{
+	      float: left;
+	      .text-overflow();
+	      color: #b4b3b3;
+	      font-size: @fontSize14;
+	    }
+	  }
+	}
+	.tab-content{
+	  margin: 1.66vh 0.52vw 1.2vh;
+	  height: 16.64vh;
+	  overflow: hidden;
+	  .tab-head{
+	    >li{
+	      /*font-size: @fontSize16;*/
+	      font-size: 1.2rem;
+	    }
+	  }
+	}
+	.tab-list{
+	  /*width: 100%;*/
+	  height: 14.64vh;
+	  border-collapse:collapse;
+	  tbody{
+	    >tr{
+	      text-align: center;
+	      color: #ffffff;
+	      padding: 0 24px;
+	      border-bottom: 1px solid #393231;
+	      display: block;
+	      height: 20%;
+	      line-height: 2.93vh;
+	      .clearfix();
+	      &:last-child{
+	        border-bottom: 0px solid #393231;
+	      }
+	    }
+	    td{
+	      float: left;
+	      .text-overflow();
+	      color: #b4b3b3;
+	      font-size: @fontSize14;
+	      &:nth-child(1){
+	        width:14%;
+	      }
+	      &:nth-child(2){
+	        width:38.5%;
+	        padding: 0 1%;
+	      }
+	      &:nth-child(3){
+	        width:22.5%;
+	      }
+	      &:nth-child(4){
+	        width:23%
+	      }
+	    }
+	  }
+	}
+}
+marquee{
+	div{
+	    display: inline-block;
+	    padding-right: 5%;
+	    line-height: 3.7vh;
+	    font-size: 1.48vh;
+	    color: #c0c0c0;
+	}
+}
+
+@-webkit-keyframes iconMoveOut {
+  0%{
+    .rotate(0);
+  }
+  100%{
+    .rotate(-360deg);
+  }
+}
+@keyframes iconMoveOut {
+  0%{
+    .rotate(0);
+  }
+  100%{
+    .rotate(-360deg);
+  }
+}
+@-webkit-keyframes iconMoveIn {
+  0%{
+    .rotate(0);
+  }
+  100%{
+    .rotate(360deg);
+  }
+}
+@keyframes iconMoveIn {
+  0%{
+    .rotate(0);
+  }
+  100%{
+    .rotate(360deg);
+  }
+}

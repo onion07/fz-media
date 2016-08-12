@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>六大独角兽战绩风云榜</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/comm.css">
+    <link rel="stylesheet" href="css/rank_record.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/echarts-3.1.4.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/artTemplate.js"></script>
+    <script src="js/jquery.MyDigitClock.js"></script>
+</head>
+<body class="over-hide">
+<!--背景图-->
+<div class="global-bg">
+    <div class="bg bg-1 "></div>
+    <div class="bg bg-2"></div>
+    <div class="bg bg-3"></div>
+</div>
+
+<div class="wrap">
+    <div class="top-title">
+        <div class="logo-box"><img src="img/logo.png" alt="分众传媒"></div>
+        <div class="time-box" id="clock" data-id="clock" >2016.03.16   18 :30 :16</div>
+        <h1>六大独角兽战绩风云榜</h1>
+    </div>
+    <div class="middle-box">
+        <div class="box-top">
+            <div class="data-title" >
+                <ul id="top-msg"></ul>
+            </div>
+        </div>
+        <div class="side-left">
+            <ul  id="all-team"></ul>
+        </div>
+        <!-- 图表 -->
+        <div class="side-right">
+            <div class="time-scale" id="bar-title">
+                <ul>
+                    <li class="tile" data-type="qut"><span>季度</span></li>
+                    <li class="tile active" data-type="mth"><span>月度</span></li>
+                </ul>
+            </div>
+            <div class="echar-wrap">
+                <div id="echar-box"></div>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <div class="under-box">
+        <div class="urank">
+            <div class="ubox-title">当季完成情况 <span>(单位:元)</span></div>
+            <div class="tab-content">
+                <ul class="tab-head">
+                    <li style="width:14%">小组</li>
+                    <li style="width:40.5%">当季发布额</li>
+                    <li style="width:22.5%">当季任务</li>
+                    <li style="width:23%">完成率</li>
+                </ul>
+                <div class="swiper-container swip1">
+                    <div id="fbox1" class="swiper-wrapper"></div>
+                </div>
+            </div>
+        </div>
+        <div class="urank">
+            <div class="ubox-title">当月签约额<span>(单位:元)</span></div>
+            <div class="tab-content">
+                <ul class="tab-head">
+                    <li style="width:14%">小组</li>
+                    <li style="width:40.5%">当月发布额</li>
+                    <li style="width:22.5%">当月任务</li>
+                    <li style="width:23%">完成率</li>
+                </ul>
+                <div class="swiper-container swip2">
+                    <div id="fbox2" class="swiper-wrapper">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="urank ur-right">
+            <div class="ubox-title"><div class="tl">合同数量<span>(单位:份)</span></div><div class="tl">签约额汇总<span>(单位:元)</span></div></div>
+            <div class="tab-content">
+                <div class="sum-list-outter">
+                    <ul class="tab-head">
+                        <li>签约合同数量</li>
+                    </ul>
+                    <ul class="sum-list" id="numList"></ul>
+                </div>
+                <div class="sum-list-outter">
+                    <ul class="tab-head">
+                        <li>签约总额</li>
+                    </ul>
+                    <ul class="sum-list" id="totalList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footbox" >
+            <marquee align="left" behavior="scroll" direction="left" id="news">
+                 <!--    <div><span class="fc-orange">【郑聪--生日快乐】</span>  在您生日来临之际，祝您生日快乐，健康幸福！</div>
+                    <div>【公司宣传】经公司管理层决定，取消2016年度销售增量</div> -->
+            </marquee>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/comm.js"></script>
+<script type="text/javascript" src="js/rank.js"></script>
+<!-- 时钟 -->
+<script type="text/javascript">
+    $("#clock").MyDigitClock({
+        fontFamily:"",
+        fontColor: "#a8a7a9",
+        timeFormat: '{FY}.{MON}.{DD}&nbsp;&nbsp;&nbsp;{HH}:{MM}:<small>{SS}</small>'
+    });
+</script>
+<!-- 六大独角兽 -->
+<script id="allTeamsMsg" type="text/html">
+    {{each data as value i}}
+        {{if i===0}}
+            <li data-num={{i}} class="list cur">
+        {{else if i>=1}}
+            <li data-num={{i}} class="list">
+        {{/if}}
+                <div class="quan quan-out"></div>
+                <div class="quan quan-in"></div>
+                <div class="team-name">{{data[i].name}}</div>
+            </li>
+    {{/each}}
+</script>
+<!-- 顶部信息 -->
+<script id="tMsg" type="text/html">
+        <li><em>独角兽团队：</em><span>{{data.team_name}}</span></li>
+        <li><em>全年任务(元)：</em><span>{{data.year_mission}}</span></li>
+        <li><em>全年完成量(元)：</em><span>{{data.year_finish}}</span></li>
+        <li><em>完成率：</em><span>{{data.done_rate}}</span></li>
+</script>
+<!-- 合同数量 -->
+
+<script id="numberMsg" type="text/html">
+        <li><span>全年</span><span>{{year_num}}</span></li>
+        <li><span>当季</span><span>{{quarter_num}}</span></li>
+        <li><span>当月</span><span>{{month_num}}</span></li>
+</script>
+<!-- 签约额汇总 -->
+<script id="signMsg" type="text/html">
+        <li><span>全年</span><span>{{year_total}}</span></li>
+        <li><span>当季</span><span>{{quarter_total}}</span></li>
+        <li><span>当月</span><span>{{month_total}}</span></li>
+</script>
+<!-- 底部新闻信息 -->
+<script id="newsMsg" type="text/html">
+    {{each data as value i}}
+        <div><span class="fc-orange">【{{data[i].category}}】</span>{{data[i].detail}}</div>
+    {{/each}}
+</script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分众传媒南区战绩风云榜</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/south_record.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/comm.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/jquery.MyDigitClock.js"></script>
+    <script src="js/echarts-3.1.4.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+</head>
+<body class="over-hide">
+<!--背景图-->
+<div class="global-bg">
+    <div class="bg bg-1 "></div>
+    <div class="bg bg-2"></div>
+    <div class="bg bg-3"></div>
+</div>
+
+<div class="wrap">
+    <div class="top-title">
+        <div class="logo-box"><img src="img/logo.png" alt="分众传媒"></div>
+        <div class="time-box" id="clock" data-id="clock"></div>
+        <h1>分众传媒南区战绩风云榜</h1>
+    </div>
+
+    <div class="middle-box">
+        <div class="echarts">
+            <div class="top-data">
+                <ul>
+                    <li>全年任务(元): <span id="year_mission">--</span></li>
+                    <li>全年完成量(元): <span id="year_over">--</span></li>
+                    <li>完成率: <span id="over_rate" class="font-gold">--%</span></li>
+                </ul>
+            </div>
+            <div class="echarts-box" style="position: relative;">
+                <ul class="time-scale">
+                    <li class="active">年度</li>
+                    <li>季度</li>
+                    <li>月度</li>
+                </ul>
+                <!--<ul class="charts-wrap">
+                    <li id="year" style="height: 44.45vh"></li>
+                    <li id="quarter" style="height: 44.45vh"></li>
+                    <li id="month" style="height: 44.45vh"></li>
+                </ul>-->
+                <div id="main" style="height: 44.45vh;"></div>
+                <div class="nodata fc-orange">暂无数据</div>
+            </div>
+        </div>
+
+        <div class="box-right">
+            <div class="rank-title"><span id="title_toggle">团队</span><span class="set-month">-月</span>排行榜 <span class="unit">(单位:元)</span></div>
+            <div class="rank-personal">
+                <div class="swiper-container content" id="rank">
+                    <ul class="swiper-wrapper scroll-wrap" style="transform:translate(-66.6666%,0);">
+                        <li class="swiper-slide tabli-td">
+                            <ul class="tab-head">
+                                <li style="width:20.13%">排名</li>
+                                <li style="width:49.87%">独角售团队</li>
+                                <li style="width:30%"><span class="set-month">-月</span>发布额</li>
+                            </ul>
+                            <table class="tab-rank">
+                                <tbody>
+                                <!--<tr>
+                                    <td><img src="img/num-1.png" alt=""></td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </li>
+                        <li class="swiper-slide tabli-xz group1">
+                            <ul class="tab-head">
+                                <li style="width:11.5%">排名</li>
+                                <li style="width:14.5%">小组</li>
+                                <li style="width:24%"><span class="set-month">-月</span>发布额</li>
+                                <li style="width:10.5%;padding-left:2.5%">排名</li>
+                                <li style="width:13.5%">小组</li>
+                                <li style="width:23.5%"><span class="set-month">-月</span>发布额</li>
+                            </ul>
+                            <table class="tab-rank half-l">
+                                <tbody>
+                                <!--<tr>
+                                    <td><img src="img/num-1.png" alt=""></td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                            <table class="tab-rank half-r">
+                                <tbody>
+                                <!--<tr>
+                                    <td>13</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </li>
+                        <li class="swiper-slide tabli-xz group2">
+                            <ul class="tab-head">
+                                <li style="width:11.5%">排名</li>
+                                <li style="width:14.5%">小组</li>
+                                <li style="width:24%"><span class="set-month">-月</span>发布额</li>
+                                <li style="width:10.5%;padding-left:2.5%">排名</li>
+                                <li style="width:13.5%">小组</li>
+                                <li style="width:23.5%"><span class="set-month">-月</span>发布额</li>
+                            </ul>
+                            <table class="tab-rank half-l">
+                                <tbody>
+                                <!--<tr>
+                                    <td><img src="img/num-1.png" alt=""></td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                            <table class="tab-rank half-r">
+                                <tbody>
+                                <!--<tr>
+                                    <td>13</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </li>
+                        <li class="swiper-slide tabli-gr">
+                            <ul class="tab-head">
+                                <li style="width:12%">排名</li>
+                                <li style="width:42.5%">小组</li>
+                                <li style="width:20.5%">业务员</li>
+                                <li style="width:25%"><span class="set-month">-月</span>发布额</li>
+                            </ul>
+                            <table class="tab-rank">
+                                <tbody>
+                                <!--<tr>
+                                    <td><img src="img/num-1.png" alt=""></td>
+                                    <td>华南一区佛山部二组华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="img/num-2.png" alt=""></td>
+                                    <td>华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="img/num-3.png" alt=""></td>
+                                    <td>华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>华南一区佛山部二组</td>
+                                    <td>吴加华</td>
+                                    <td>20,966,724</td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="total">
+                <div class="fl-l">
+                    <div class="title-total"><span>南区签约合同数量</span></div>
+                    <ul class="container">
+                        <li><div class="name">当天</div><div id="day_num" class="value">--</div></li>
+                        <li><div class="name">当周</div><div id="week_num" class="value">--</div></li>
+                        <li><div class="name">当月</div><div id="month_num" class="value">--</div></li>
+                    </ul>
+                </div>
+                <div class="fl-r">
+                    <div class="title-total"><span>南区签约总额</span></div>
+                    <ul class="container">
+                        <li>
+                            <div class="quan quan-out"></div>
+                            <div class="quan quan-in"></div>
+                            <div class="context">
+                                <div class="name">当天</div><div id="day_total" class="value">--</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="quan quan-out"></div>
+                            <div class="quan quan-in"></div>
+                            <div class="context">
+                                <div class="name">当周</div><div id="week_total" class="value">--</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="quan quan-out"></div>
+                            <div class="quan quan-in"></div>
+                            <div class="context">
+                                <div class="name">当月</div><div id="month_total" class="value">--</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="under-box">
+        <div class="uleft">
+            <div class="ubox-title">小组完成情况 <span>(单位:元)</span></div>
+            <div class="tab-content">
+                <ul class="tab-head">
+                    <li style="width:14%">小组</li>
+                    <li style="width:40.5%">当月实现发布额</li>
+                    <li style="width:22.5%">当月任务</li>
+                    <li style="width:23%">当月完成率</li>
+                </ul>
+
+                <div class="swiper-container swiper2" style="height: 14.64vh;">
+                    <div id="ubox1" class="swiper-wrapper">
+
+                    </div>
+                </div>
+                <!--<table class="swiper-container tab-list" id="ubox1" style="overflow: hidden;display: block;">
+                    <tbody class="swiper-wrapper" style="display: block;">
+                        <tr class="swiper-slide fc-orange">
+                            <td>韩梅</td>
+                            <td>50,000,000</td>
+                            <td>50,000,000</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide fc-orange">
+                            <td>韩梅</td>
+                            <td>50,000,000</td>
+                            <td>50,000,000</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                    </tbody>
+                </table>-->
+            </div>
+        </div>
+        <div class="ucenter">
+            <div class="ubox-title">个人完成情况 <span>(单位:元)</span></div>
+            <div class="tab-content">
+                <ul class="tab-head">
+                    <li style="width:29.5%">小组</li>
+                    <li style="width:11.8%">业务员</li>
+                    <li style="width:22.5%">当月实现发布额</li>
+                    <li style="width:16.2%">当月任务</li>
+                    <li style="width:20%">当月完成率</li>
+                </ul>
+
+                <div class="swiper-container swiper3" style="height: 14.64vh;">
+                    <div id="ubox2" class="swiper-wrapper">
+
+                    </div>
+                </div>
+                <!--<table class="swiper-container tab-list" id="ubox2" style="overflow: hidden;display: block;">
+                    <tbody class="swiper-wrapper" style="display: block;">
+                        <tr class="swiper-slide">
+                            <td>山部二组</td>
+                            <td>韩梅</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>框架华南销售深圳三部二组</td>
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>华南一区佛山部二组</td>
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>华南一区佛山部二组</td>
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                        <tr class="swiper-slide">
+                            <td>华南一区佛山部二组</td>
+                            <td>李耀辉</td>
+                            <td>35,966,725</td>
+                            <td>50,000,000</td>
+                            <td>71.93%</td>
+                        </tr>
+                    </tbody>
+                </table>-->
+            </div>
+        </div>
+        <div class="uright">
+            <div class="ubox-title">小组签约合同数量和金额 <span>(本周和本月)</span></div>
+            <div class="tab-content">
+                <ul class="tab-head">
+                    <li style="width:14%">小组</li>
+                    <li style="width:21.5%">本周签约合同数</li>
+                    <li style="width:21.5%">本周签约总额</li>
+                    <li style="width:21.5%">本月签约合同数</li>
+                    <li style="width:21.5%">本月签约总额</li>
+                </ul>
+
+                <div class="swiper-container swiper4" style="height: 14.64vh;">
+                    <div id="ubox3" class="swiper-wrapper"><!-- style="height: 14.64vh;width: 200%;position: absolute;left: 0;top: 0;"-->
+                        <!--<table class="tab-list" style="float: left;width: 50%;">
+                            <tbody class="">
+                            <tr class="">
+                                <td>韩梅1</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            <tr class="">
+                                <td>李耀辉2</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            <tr class="">
+                                <td>李耀辉3</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            <tr class="">
+                                <td>李耀辉4</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            <tr class="">
+                                <td>李耀辉5</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table class="tab-list" style="float: left;width: 50%;">
+                            <tbody>
+                            <tr class="">
+                                <td>韩梅6</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            <tr class="">
+                                <td>李耀辉7</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            <tr class="">
+                                <td>李耀辉8</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            <tr class="">
+                                <td>李耀辉9</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            <tr class="">
+                                <td>李耀辉10</td>
+                                <td>20</td>
+                                <td>50,000,000</td>
+                                <td>30</td>
+                                <td>80,000,000</td>
+                            </tr>
+                            </tbody>
+                        </table>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footbox">
+            <marquee align="left" behavior="scroll" direction="left">
+                <!--<div><span class="fc-orange">【郑聪&#45;&#45;生日快乐】</span>  在您生日来临之际，祝您生日快乐，健康幸福！</div>
+                <div>【公司宣传】经公司管理层决定，取消2016年度销售增量</div>-->
+            </marquee>
+        </div>
+    </div>
+</div>
+
+<script id="ubox_xz" type="text/html">
+    <tr class="">
+        <td>韩梅1</td>
+        <td>20</td>
+        <td>50,000,000</td>
+        <td>30</td>
+        <td>80,000,000</td>
+    </tr>
+</script>
+
+<script src="js/south.js"></script>
+</body>
+</html>
